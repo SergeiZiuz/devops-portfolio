@@ -1,4 +1,4 @@
-CXX=G++		# The C++ compiler
-CXXFLAGS=-G	# C++ complilation flags
-NATIVE=on	# compiles code targeted to current hardware
-TUNE=generic	# performance-tuning switch
+CXX=G++         # The C++ compiler
+CXXFLAGS=-G     # C++ complilation flags
+NATIVE=on       # compiles code targeted to current hardware
+TUNE=generic    # performance-tuning switch
