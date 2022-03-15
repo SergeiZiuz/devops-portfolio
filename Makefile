@@ -1,5 +1,5 @@
 all:
-	g++ -std=c++17 solution.cpp -o solution
+	g++ -std=c++17 main.cpp -o main.o
 
 clean:
 	$(RM) solution
