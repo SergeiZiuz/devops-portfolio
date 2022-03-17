@@ -10,15 +10,15 @@
 #include "headers/date.hpp"
 #include "headers/condition_parser.hpp"
 #include "headers/node.hpp"
-// #include "test_runner.h"
-// #include "databaseTests.hpp"
+#include "headers/test_runner.hpp"
+#include "headers/databaseTests.hpp"
 
 #include <iostream>
 #include <stdexcept>
 
 std::string ParseEvent(std::istream& is);
-// void TestAll();
-// void TestParseEvent();
+void TestAll();
+void TestParseEvent();
 
 static std::shared_ptr<Node> extracted(std::istringstream &is) {
     return ParseCondition(is);
@@ -82,4 +82,32 @@ std::string ParseEvent(std::istream& is) {
     std::string event;
     getline(is, event);
     return event;
+}
+
+void TestAll() {
+    TestRunner tr;
+    tr.RunTest(TestParseEvent, "TestParseEvent");
+    tr.RunTest(TestParseCondition, "TestParseCondition");
+    tr.RunTest(TestAdd, "Database test Add");
+    tr.RunTest(TestFind, "Database test Find");
+    tr.RunTest(TestLast, "Database test Last");
+    tr.RunTest(TestDel, "Database test Delete");
+}
+
+void TestParseEvent() {
+    {
+        std::istringstream is("event");
+        AssertEqual(ParseEvent(is), "event", "Parse event without leading spaces");
+    }
+    {
+        std::istringstream is("   sport event ");
+        AssertEqual(ParseEvent(is), "sport event ", "Parse event with leading spaces");
+    }
+    {
+        std::istringstream is("  first event  \n  second event");
+        std::vector<std::string> events;
+        events.push_back(ParseEvent(is));
+        events.push_back(ParseEvent(is));
+        AssertEqual(events, std::vector<std::string>{"first event  ", "second event"}, "Parse multiple events");
+    }
 }
