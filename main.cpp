@@ -25,6 +25,7 @@ static std::shared_ptr<Node> extracted(std::istringstream &is) {
 }
 
 int main(int argc, const char* argv[]) {
+    
 //	TestAll();
 
 	Database db;
