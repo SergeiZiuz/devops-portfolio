@@ -92,9 +92,9 @@ std::string ParseEvent(std::istream& is) {
 //     tr.RunTest(TestParseEvent, "TestParseEvent");
 //     tr.RunTest(TestParseCondition, "TestParseCondition");
 //     tr.RunTest(TestAdd, "Database test Add");
-//     // tr.RunTest(TestFind, "Database test Find");
-//     // tr.RunTest(TestLast, "Database test Last");
-//     // tr.RunTest(TestDel, "Database test Delete");
+//     tr.RunTest(TestFind, "Database test Find");
+//     tr.RunTest(TestLast, "Database test Last");
+//     tr.RunTest(TestDel, "Database test Delete");
 // }
 
 // void TestParseEvent() {
