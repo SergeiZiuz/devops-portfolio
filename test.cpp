@@ -16,7 +16,7 @@ void TestParseEvent();
 std::string ParseEvent(std::istream& is);
 
 int main(int argc, const char* argv[]) {
-    TestAll();
+    // TestAll();
 
     return 0;
 }
