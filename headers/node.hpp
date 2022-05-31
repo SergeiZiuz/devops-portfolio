@@ -44,6 +44,7 @@ bool ComparisonValue (const Comparison cmp, const T& t, const U& u) {
         case Comparison::NotEqual:
             return t != u;
     }
+    throw;
 }
 
 class Node {
