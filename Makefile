@@ -1,4 +1,4 @@
-all: solution
+all: solution clean
 
 solution: main.o node.o token.o date.o database.o condition_parser.o
 	g++ -std=c++17 ./bin/main.o ./bin/node.o ./bin/token.o ./bin/date.o ./bin/database.o ./bin/condition_parser.o -o ./bin/solution
@@ -22,4 +22,4 @@ condition_parser.o: condition_parser.cpp
 	g++ -std=c++17 -c condition_parser.cpp -o ./bin/condition_parser.o
 
 clean:
-	$(RM) ./bin/*.o ./bin/solution
+	$(RM) ./bin/*.o
