@@ -22,5 +22,8 @@ database.o: database.cpp
 condition_parser.o: condition_parser.cpp
 	$(CC) -std=c++17 -c -Wall condition_parser.cpp -o ./bin/condition_parser.o
 
+test: test.cpp
+	$(CC) -target x86_64-apple-darwin20.6.0 -arch x86_64 -std=c++17 -Wall test.cpp -o ./bin/test.o
+
 clean:
 	$(RM) ./bin/*.o

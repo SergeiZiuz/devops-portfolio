@@ -15,12 +15,6 @@ void TestAll();
 void TestParseEvent();
 std::string ParseEvent(std::istream& is);
 
-int main(int argc, const char* argv[]) {
-    // TestAll();
-
-    return 0;
-}
-
 void TestAll() {
     TestRunner tr;
     tr.RunTest(TestParseEvent, "TestParseEvent");
@@ -29,6 +23,15 @@ void TestAll() {
     tr.RunTest(TestFind, "Database test Find");
     tr.RunTest(TestLast, "Database test Last");
     tr.RunTest(TestDel, "Database test Delete");
+}
+
+std::string ParseEvent(std::istream& is) {
+    while (is.peek() == ' ') {
+        is.get();
+    }
+    std::string event;
+    getline(is, event);
+    return event;
 }
 
 void TestParseEvent() {
