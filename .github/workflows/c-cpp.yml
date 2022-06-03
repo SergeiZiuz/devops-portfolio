@@ -22,16 +22,16 @@ jobs:
 #    - name: make distcheck
 #      run: make distcheck#
     - name: Release
-      if: startsWith(github.ref, 'refs/tags')
-      uses: softprops/action-gh-release
+      # if: startsWith(github.ref, 'refs/tags')
+      # uses: softprops/action-gh-release
+      # with:
+      #   files: ./bin/solution
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
       with:
-        files: ./bin/solution
+        files: ./bin/artifacts/tr-linux-amd64.tar.gz,./bin/artifacts/tr-darwin-amd64.tar.gz
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-#      if: startsWith(github.ref, 'refs/tags/')
-#      uses: softprops/action-gh-release@v1
-#      with:
-#        files: ./bin/artifacts/tr-linux-amd64.tar.gz,./bin/artifacts/tr-darwin-amd64.tar.gz
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
